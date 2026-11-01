@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { site } from "../config";
 import { useActiveSection } from "../hooks/useActiveSection";
@@ -24,13 +24,40 @@ const statusLabels: Record<DiscordStatus, string> = {
 export function Nav({ presence }: { presence: LanyardState }) {
   const [open, setOpen] = useState(false);
   const active = useActiveSection();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const { data } = presence;
 
   useEffect(() => {
     if (!open) return;
 
+    const menu = menuRef.current;
+    const focusable = menu
+      ? Array.from(
+          menu.querySelectorAll<HTMLElement>('a[href], button:not([tabindex="-1"])')
+        )
+      : [];
+
+    focusable[0]?.focus({ preventScroll: true });
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     document.addEventListener("keydown", onKeyDown);
@@ -39,6 +66,7 @@ export function Nav({ presence }: { presence: LanyardState }) {
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
+      toggleRef.current?.focus({ preventScroll: true });
     };
   }, [open]);
 
@@ -97,6 +125,7 @@ export function Nav({ presence }: { presence: LanyardState }) {
           </a>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
@@ -119,7 +148,14 @@ export function Nav({ presence }: { presence: LanyardState }) {
       </nav>
 
       {open && (
-        <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" className="fixed inset-0 z-40 md:hidden">
+        <div
+          ref={menuRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+          className="fixed inset-0 z-40 md:hidden"
+        >
           <button
             type="button"
             tabIndex={-1}
