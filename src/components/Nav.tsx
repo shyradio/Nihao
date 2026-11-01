@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { site } from "../config";
+import { useActiveSection } from "../hooks/useActiveSection";
 import type { LanyardState } from "../hooks/useLanyard";
 import type { DiscordStatus } from "../lib/lanyard";
 import { DiscordMark, GithubMark } from "./icons";
 import { StatusDot } from "./StatusDot";
 
 const links = [
-  { href: "#about", label: "about" },
-  { href: "#projects", label: "built" },
-  { href: "#find-me", label: "find me" },
+  { id: "home", href: "#home", label: "home" },
+  { id: "about", href: "#about", label: "about" },
+  { id: "projects", href: "#projects", label: "projects" },
+  { id: "find-me", href: "#find-me", label: "contact" },
 ];
 
 const statusLabels: Record<DiscordStatus, string> = {
@@ -21,6 +23,7 @@ const statusLabels: Record<DiscordStatus, string> = {
 
 export function Nav({ presence }: { presence: LanyardState }) {
   const [open, setOpen] = useState(false);
+  const active = useActiveSection();
   const { data } = presence;
 
   useEffect(() => {
@@ -55,16 +58,25 @@ export function Nav({ presence }: { presence: LanyardState }) {
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="rounded-full px-3 py-1.5 text-[13px] text-ink-soft transition-colors duration-500 ease-spring hover:bg-ink/[0.04] hover:text-ink"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            const isActive = active === link.id;
+
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`rounded-full px-3 py-1.5 text-[13px] transition-colors duration-500 ease-spring ${
+                    isActive
+                      ? "bg-ink/[0.055] text-ink"
+                      : "text-ink-soft hover:bg-ink/[0.04] hover:text-ink"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-2">
@@ -118,22 +130,33 @@ export function Nav({ presence }: { presence: LanyardState }) {
 
           <div className="relative flex h-full flex-col justify-between px-7 pb-10 pt-28">
             <ul className="space-y-1">
-              {links.map((link, index) => (
-                <li
-                  key={link.href}
-                  className="menu-link"
-                  style={{ animationDelay: `${120 + index * 70}ms` }}
-                >
-                  <a
-                    href={link.href}
-                    onClick={close}
-                    className="flex items-center justify-between border-b border-line/70 py-4 font-display text-[2rem] font-medium tracking-tight text-ink"
+              {links.map((link, index) => {
+                const isActive = active === link.id;
+
+                return (
+                  <li
+                    key={link.href}
+                    className="menu-link"
+                    style={{ animationDelay: `${120 + index * 70}ms` }}
                   >
-                    {link.label}
-                    <ArrowUpRight size={20} strokeWidth={1.5} className="text-ink/30" />
-                  </a>
-                </li>
-              ))}
+                    <a
+                      href={link.href}
+                      onClick={close}
+                      aria-current={isActive ? "location" : undefined}
+                      className={`flex items-center justify-between border-b border-line/70 py-4 font-display text-[2rem] font-medium tracking-tight ${
+                        isActive ? "text-sky-deep" : "text-ink"
+                      }`}
+                    >
+                      {link.label}
+                      {isActive ? (
+                        <span className="h-2 w-2 rounded-full bg-pink" aria-hidden="true" />
+                      ) : (
+                        <ArrowUpRight size={20} strokeWidth={1.5} className="text-ink/30" />
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
 
             <div

@@ -30,6 +30,7 @@ export function useLanyard(userId: string) {
     let openTimer: number | undefined;
     let cancelled = false;
     let retries = 0;
+    let receivedPresence = false;
 
     const stopHeartbeat = () => {
       if (heartbeat !== undefined) window.clearInterval(heartbeat);
@@ -38,6 +39,7 @@ export function useLanyard(userId: string) {
 
     const applyPresence = (presence: LanyardData) => {
       if (cancelled) return;
+      receivedPresence = true;
       setData(presence);
       setConnection("live");
       setError(null);
@@ -46,7 +48,14 @@ export function useLanyard(userId: string) {
 
     const scheduleReconnect = () => {
       if (cancelled) return;
-      setConnection("reconnecting");
+
+      if (!receivedPresence && retries >= 2) {
+        setConnection("error");
+        setError("Couldn't reach Discord right now.");
+      } else {
+        setConnection("reconnecting");
+      }
+
       const delay = Math.min(1000 * 2 ** retries, 15000);
       retries += 1;
       reconnectTimer = window.setTimeout(connect, delay);
@@ -111,6 +120,7 @@ export function useLanyard(userId: string) {
       .then((payload) => {
         if (cancelled) return;
         if (payload?.success && payload.data) {
+          receivedPresence = true;
           setData(payload.data as LanyardData);
           setError(null);
         } else {

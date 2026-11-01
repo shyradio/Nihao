@@ -35,6 +35,7 @@ export function Hero() {
 
   return (
     <section
+      id="home"
       ref={sectionRef}
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-[100dvh] items-center overflow-hidden"

@@ -17,6 +17,7 @@ export const site = {
   name: "Nihao",
   domain: "nihao.tech",
   url: "https://nihao.tech",
+  repo: "https://github.com/shyradio/Nihao",
   title: "Nihao — a small corner of the internet",
   description:
     "Nihao is a student exploring the internet, building small things and figuring stuff out.",
