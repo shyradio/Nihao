@@ -22,7 +22,7 @@ export default function App() {
 
       <Nav presence={presence} />
 
-      <main id="main">
+      <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <About presence={presence} />
         <Projects />
