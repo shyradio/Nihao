@@ -42,7 +42,7 @@ export function Footer() {
             {site.domain}
           </span>
           <span className="h-3 w-px bg-line" aria-hidden="true" />
-          <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
+          <p className="font-mono text-[10px] tracking-[0.14em] text-ink-soft">
             © 2026 {site.name}
           </p>
         </div>

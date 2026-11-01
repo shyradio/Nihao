@@ -50,12 +50,30 @@
     <div id="root"></div>
     <noscript>
       <style>
-        .reveal {
-          opacity: 1;
-          transform: none;
-          filter: none;
+        body {
+          margin: 0;
+          background: #fcffff;
+          color: #0b1b22;
+          font-family: ui-sans-serif, system-ui, sans-serif;
+        }
+        .fallback {
+          max-width: 34rem;
+          margin: 18vh auto;
+          padding: 0 1.5rem;
+          line-height: 1.7;
+        }
+        .fallback a {
+          color: #04749a;
         }
       </style>
+      <div class="fallback">
+        <h1>hey, i&apos;m nihao.</h1>
+        <p>
+          This site needs JavaScript for the live bits. You can still find me on
+          <a href="https://github.com/shyradio">GitHub</a> and
+          <a href="https://discord.com/users/1163514300212723777">Discord</a>.
+        </p>
+      </div>
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
