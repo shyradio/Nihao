@@ -70,7 +70,7 @@ export const site = {
       description:
         "The page you're on right now. Built to be a small, personal corner of the internet.",
       tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-      live: "/",
+      live: "./",
     },
   ] satisfies Project[],
 };
