@@ -269,10 +269,7 @@ export function DiscordCard({ presence }: { presence: LanyardState }) {
               </a>
             )}
 
-            <div className="mt-5 flex items-center justify-between gap-3 border-t border-line/70 pt-4">
-              <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-soft">
-                live via lanyard
-              </p>
+            <div className="mt-5 flex items-center justify-end gap-3 border-t border-line/70 pt-4">
               <a
                 href={site.socials.discord.href}
                 target="_blank"

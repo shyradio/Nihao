@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+import portrait from "../webtry.jpg";
 import { site } from "../config";
 import { Asterisk } from "./icons";
 
@@ -131,46 +132,72 @@ export function Hero() {
         </div>
 
         <div
-          className="intro relative mx-auto w-full max-w-[330px] sm:max-w-[380px] md:max-w-[420px]"
+          className="intro group/portrait relative mx-auto w-full max-w-[330px] sm:max-w-[380px] md:max-w-[420px]"
           style={{ animationDelay: "300ms" }}
         >
           <div className="relative aspect-[4/5] rounded-[34px] border border-line bg-white p-2 shadow-[0_40px_80px_-60px_rgba(11,27,34,0.55)]">
             <div className="relative h-full overflow-hidden rounded-[26px] bg-mist">
+              <img
+                src={portrait}
+                alt="A poster reading 'Nuclear War is Bad for Kittens' above a photo of a kitten"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="absolute inset-0 h-full w-full object-cover object-[50%_0%] saturate-[0.86] contrast-[1.04] brightness-[1.04] transition-[transform,filter] duration-[1400ms] ease-spring group-hover/portrait:scale-[1.05] group-hover/portrait:saturate-100"
+              />
+
               <div
                 aria-hidden="true"
-                className="absolute inset-0 opacity-40"
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(155deg,rgba(5,153,198,0.26),rgba(5,153,198,0.02)_45%,rgba(216,57,149,0.16))] mix-blend-soft-light"
+              />
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay"
                 style={{
-                  backgroundImage: "radial-gradient(#0599c6 1px, transparent 1px)",
+                  backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
                   backgroundSize: "22px 22px",
                 }}
               />
+
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(5,153,198,0.12),transparent_58%),radial-gradient(circle_at_76%_86%,rgba(216,57,149,0.07),transparent_55%)]"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_26%_12%,rgba(5,153,198,0.18),transparent_55%),radial-gradient(circle_at_78%_82%,rgba(216,57,149,0.1),transparent_52%)] mix-blend-screen"
               />
 
-              <div className="absolute left-1/2 top-1/2 w-[58%] -translate-x-1/2 -translate-y-1/2">
-                <Asterisk className="slow-spin w-full text-sky/75" />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(11,27,34,0.22))]"
+              />
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-[34%] bg-[linear-gradient(to_top,#fcffff_3%,rgba(252,255,255,0.9)_24%,rgba(242,250,253,0.32)_60%,rgba(242,250,253,0))]"
+              />
+
+              <span className="pointer-events-none absolute inset-0 rounded-[26px] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35),inset_0_1px_1px_rgba(255,255,255,0.45)]" />
+
+              <span
+                aria-hidden="true"
+                className="absolute right-[17%] top-[15%] h-3 w-3 rounded-full bg-pink ring-2 ring-white/70"
+              />
+              <span
+                aria-hidden="true"
+                className="absolute bottom-[21%] left-[14%] h-1.5 w-1.5 rounded-full bg-sky ring-2 ring-white/70"
+              />
+
+              <div className="absolute inset-x-0 bottom-3 flex items-center justify-between gap-3 px-4">
+                <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45">
+                  <Asterisk className="slow-spin h-3 w-3 shrink-0 text-sky/50" />
+                  fig. 01 — a person, probably
+                </p>
               </div>
-
-              <span
-                aria-hidden="true"
-                className="absolute right-[17%] top-[15%] h-3 w-3 rounded-full bg-pink"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute bottom-[21%] left-[14%] h-1.5 w-1.5 rounded-full bg-sky"
-              />
-
-              <span className="absolute right-4 top-4 -rotate-6 rounded-full border border-line bg-white px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-soft shadow-[0_8px_20px_-16px_rgba(11,27,34,0.6)]">
-                somewhere online
-              </span>
-
-              <p className="absolute bottom-4 left-4 font-mono text-[9px] uppercase tracking-[0.2em] text-ink/40">
-                fig. 01 — a person, probably
-              </p>
             </div>
           </div>
+
+          <span className="-rotate-6 absolute -bottom-3 right-5 z-10 rounded-full border border-line bg-white px-3 py-1 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-soft shadow-[0_8px_20px_-16px_rgba(11,27,34,0.6)] transition-transform duration-700 ease-spring group-hover/portrait:rotate-0">
+            somewhere online
+          </span>
 
           <span
             aria-hidden="true"

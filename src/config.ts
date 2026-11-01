@@ -30,7 +30,6 @@ export const site = {
     "Gaming",
     "Music",
     "Technology",
-    "Discord",
     "Creative experiments",
   ],
   socials: {
