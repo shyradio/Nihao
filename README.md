@@ -48,7 +48,21 @@ The account must be in the Lanyard Discord server for its presence to be tracked
 
 The site is deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
 
-Vite uses a relative base, so the same build works at a project URL (`/Nihao/`) or a custom domain. To point `nihao.tech` at the site, add the domain in the repository's Pages settings and configure the DNS records GitHub provides.
+Vite uses a relative base, so the same build works at a project URL (`/Nihao/`) or a custom domain.
+
+### Custom domain
+
+The site is served from <https://shyradio.github.io/Nihao/> until `nihao.tech` is pointed at GitHub Pages. To connect it:
+
+1. Add these apex `A` records for `nihao.tech`:
+   - `185.199.108.153`
+   - `185.199.109.153`
+   - `185.199.110.153`
+   - `185.199.111.153`
+2. Add a `CNAME` record for `www` pointing to `shyradio.github.io`.
+3. In **Settings → Pages**, enter `nihao.tech` as the custom domain and enable **Enforce HTTPS**.
+
+Do not add a `CNAME` file to the repository before DNS is ready — GitHub Pages will start redirecting the working `github.io` URL to the unfinished domain.
 
 ## Accessibility and motion
 
