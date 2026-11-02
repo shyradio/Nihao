@@ -10,7 +10,7 @@ import { StatusDot } from "./StatusDot";
 const links = [
   { id: "home", href: "#home", label: "home" },
   { id: "about", href: "#about", label: "about" },
-  { id: "projects", href: "#projects", label: "projects" },
+  { id: "achievements", href: "#achievements", label: "achievements" },
   { id: "find-me", href: "#find-me", label: "contact" },
 ];
 

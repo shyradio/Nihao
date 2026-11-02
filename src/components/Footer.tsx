@@ -26,15 +26,6 @@ export function Footer() {
               source
               <ArrowUpRight size={10} strokeWidth={1.5} />
             </a>
-            <a
-              href={`${site.repo}#ai-usage`}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 transition-colors duration-500 ease-spring hover:text-sky-deep"
-            >
-              ai usage
-              <ArrowUpRight size={10} strokeWidth={1.5} />
-            </a>
           </div>
         </div>
         <div className="flex items-center gap-4">

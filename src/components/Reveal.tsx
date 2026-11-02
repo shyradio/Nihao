@@ -21,13 +21,14 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
+          if (!entry.isIntersecting) {
+            node.dataset.visible = "false";
+          } else if (entry.intersectionRatio >= 0.12) {
             node.dataset.visible = "true";
-            observer.disconnect();
           }
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      { threshold: [0, 0.12], rootMargin: "0px 0px -40px 0px" },
     );
 
     observer.observe(node);

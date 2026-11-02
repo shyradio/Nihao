@@ -4,15 +4,6 @@ export type SocialLink = {
   href: string;
 };
 
-export type Project = {
-  name: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  live?: string;
-  status?: string;
-};
-
 export const site = {
   name: "Nihao",
   domain: "nihao.tech",
@@ -49,27 +40,9 @@ export const site = {
       href: "mailto:nihao@nihao.tech",
     },
   } satisfies Record<string, SocialLink>,
-  projects: [
-    {
-      name: "discord music bot",
-      description:
-        "A bot that plays music in voice channels. The queue logic is still being rewritten every other weekend.",
-      tech: ["TypeScript", "discord.js", "Node.js"],
-      status: "work in progress",
-    },
-    {
-      name: "playlist transfer",
-      description:
-        "Moves playlists between streaming services without losing the order. An early experiment that keeps growing.",
-      tech: ["React", "TypeScript", "Spotify API"],
-      status: "early experiment",
-    },
-    {
-      name: "this website",
-      description:
-        "The page you're on right now. Built to be a small, personal corner of the internet.",
-      tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-      live: "./",
-    },
-  ] satisfies Project[],
+  achievements: [
+    "Friend of ex-class monitor",
+    "Former Child",
+    "Personally knew someone who got full marks",
+  ],
 };

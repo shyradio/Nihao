@@ -1,6 +1,6 @@
 # nihao.tech
 
-A small personal corner of the internet. One page, a live Discord presence, and a list of things I'm building.
+A small personal corner of the internet. One page, a live Discord presence, and a list of achievements.
 
 Live: <https://shyradio.github.io/Nihao/>
 
@@ -34,7 +34,7 @@ Everything personal lives in `src/config.ts`:
 
 - `discordId` — the Lanyard user ID used for live presence.
 - `socials` — Discord, GitHub and email links.
-- `projects` — name, description, tech, optional GitHub/live links.
+- `achievements` — the list shown in the achievements section.
 - `interests`, `status`, `about` — copy used on the page.
 - `repo` — used by the footer links.
 

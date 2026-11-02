@@ -1,10 +1,10 @@
 import { About } from "./components/About";
+import { Achievements } from "./components/Achievements";
 import { BackToTop } from "./components/BackToTop";
 import { FindMe } from "./components/FindMe";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
-import { Projects } from "./components/Projects";
 import { site } from "./config";
 import { useLanyard } from "./hooks/useLanyard";
 
@@ -25,7 +25,7 @@ export default function App() {
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <About presence={presence} />
-        <Projects />
+        <Achievements />
         <FindMe />
       </main>
 

@@ -33,18 +33,14 @@ export function About({ presence }: { presence: LanyardState }) {
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mt-9 max-w-sm text-[13px] leading-relaxed text-ink-soft">
-              the rest of me lives on{" "}
-              <a
-                href={site.socials.discord.href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sky-deep underline-offset-4 transition-colors duration-500 ease-spring hover:text-[#03627f] hover:underline"
-              >
-                discord
-              </a>
-              , mostly after midnight.
-            </p>
+            <blockquote className="mt-9 max-w-sm border-l border-line pl-4 text-[13px] leading-relaxed text-ink-soft">
+              <p>
+                &ldquo;You are my destiny.&rdquo;{" "}
+                <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.16em]">
+                  - Paul Anka
+                </span>
+              </p>
+            </blockquote>
           </Reveal>
         </div>
 

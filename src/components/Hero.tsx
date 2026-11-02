@@ -109,10 +109,10 @@ export function Hero() {
             style={{ animationDelay: "380ms" }}
           >
             <a
-              href="#projects"
+              href="#achievements"
               className="group inline-flex items-center gap-3 rounded-full bg-sky-deep py-2 pl-6 pr-2 text-sm font-medium text-white transition-all duration-500 ease-spring hover:bg-[#03627f] active:scale-[0.98]"
             >
-              explore my stuff
+              see my achievements
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 transition-transform duration-500 ease-spring group-hover:translate-y-0.5 group-hover:scale-105">
                 <ArrowDown size={15} strokeWidth={1.75} />
               </span>
