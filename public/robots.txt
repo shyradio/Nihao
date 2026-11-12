@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nihao.tech/sitemap.xml
+Sitemap: https://purush.tech/sitemap.xml

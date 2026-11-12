@@ -5,13 +5,13 @@ export type SocialLink = {
 };
 
 export const site = {
-  name: "Nihao",
-  domain: "nihao.tech",
-  url: "https://nihao.tech",
-  repo: "https://github.com/shyradio/Nihao",
-  title: "Nihao — a small corner of the internet",
+  name: "Purush",
+  domain: "purush.tech",
+  url: "https://purush.tech",
+  repo: "https://github.com/shyradio/Purush",
+  title: "Purush — a small corner of the internet",
   description:
-    "Nihao is a student exploring the internet, building small things and figuring stuff out.",
+    "Purush is a student exploring the internet, building small things and figuring stuff out.",
   discordId: "1163514300212723777",
   status: "currently doing something interesting",
   about:
@@ -36,8 +36,8 @@ export const site = {
     },
     email: {
       label: "Email",
-      handle: "nihao@nihao.tech",
-      href: "mailto:nihao@nihao.tech",
+      handle: "purush@purush.tech",
+      href: "mailto:purush@purush.tech",
     },
   } satisfies Record<string, SocialLink>,
   achievements: [

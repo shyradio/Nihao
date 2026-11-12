@@ -67,7 +67,7 @@ export function Hero() {
           >
             hey, i&apos;m{" "}
             <span className="relative inline-block">
-              nihao
+              purush
               <svg
                 viewBox="0 0 120 12"
                 fill="none"

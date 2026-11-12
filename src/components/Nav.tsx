@@ -82,7 +82,7 @@ export function Nav({ presence }: { presence: LanyardState }) {
           href="#top"
           className="font-display text-[17px] font-semibold tracking-tight text-ink"
         >
-          nihao<span className="text-pink">.</span>
+          purush<span className="text-pink">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
